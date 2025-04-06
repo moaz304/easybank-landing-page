@@ -1,0 +1,177 @@
+html {
+  font-size: 100%; // Set default font size
+  box-sizing: border-box; // Include border and padding in size
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; // Inherit box sizing from html
+}
+
+body {
+  margin: 0; // Remove default margin
+  padding: 0; // Remove default padding
+  font-family: 'Public Sans', sans-serif; // Set font
+  font-size: $font-sm; // Base font size
+  font-weight: 300; // Light weight
+  color: $grayishBlue; // Text color
+  line-height: 1.3; // Line height for readability
+  overflow-x: hidden; // Prevent horizontal scroll
+
+  @include breakpoint-up(large) {
+    font-size: $font-med; // Increase font size on large screens
+  }
+
+  &.noscroll {
+    overflow: hidden; // Disable scroll when class is added
+  }
+}
+
+h1, h2, h3 {
+  font-weight: 300; // Light heading weight
+  line-height: 1.15; // Tight line spacing
+  color: $darkBlue; // Heading color
+  margin-top: 0px; // Remove top space
+}
+
+h1 {
+  font-size: 2.31rem; // Big title size
+  margin-bottom: 1.5rem; // Space below
+
+  @include breakpoint-up(large) {
+    font-size: $font-xlg; // Bigger on large screen
+  }
+}
+
+h2 {
+  font-size: 1.875rem; // Subtitle size
+  margin-bottom: 1.5625rem; // Space below
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem; // Larger size for desktop
+    margin-bottom: 2.25rem; // More space
+  }
+}
+
+p {
+  line-height: 1.5; // Good line spacing for text
+  margin-bottom: 2.25rem; // Space after paragraph
+}
+
+a, a:visited, a:hover {
+  text-decoration: none; // Remove link underline
+}
+
+.container {
+  max-width: 69.375rem; // Limit width
+  margin: 0 auto; // Center container
+
+  &--pall {
+    padding-top: 4.375rem; // Padding all sides
+    padding-right: 1.5rem;
+    padding-bottom: 4.375rem;
+    padding-left: 1.5rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &--py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &--px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  &--pt {
+    padding-top: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+    }
+  }
+
+  &--pr {
+    padding-right: 1.5rem;
+  }
+
+  &--pb {
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-bottom: 6rem;
+    }
+  }
+
+  &--pl {
+    padding-left: 1.5rem;
+  }
+}
+
+.flex {
+  display: flex; // Flex container
+
+  &-jc-sb {
+    justify-content: space-between; // Space between items
+  }
+
+  &-jc-c {
+    justify-content: center; // Center items horizontally
+  }
+
+  &-ai-c {
+    align-items: center; // Center items vertically
+  }
+}
+
+button, .button {
+  position: relative;
+  display: inline-block;
+  padding: 0.875rem 2.1875rem; // Size of button
+  background-image: linear-gradient(to right, $limeGreen, $brightCyan); // Gradient
+  border: 0;
+  border-radius: 50px; // Rounded edges
+  cursor: pointer;
+  color: $white; // Text color
+  font-weight: 400;
+  font-size: $font-sm;
+  transition: opacity 300ms ease-in-out; // Smooth hover effect
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.25); // White overlay
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1; // Show overlay on hover
+  }
+}
+
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none; // Hide this element on small screens
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none; // Hide this element on large screens
+  }
+}
