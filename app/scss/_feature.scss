@@ -1,0 +1,61 @@
+.feature {
+  background-color: $lightGrayishBlue; // Background color for the feature section
+  text-align: center; // Center text alignment for smaller screens
+
+  @include breakpoint-up(medium) {
+    text-align: left; // Align text to the left on larger screens
+  }
+
+  &__intro {
+    margin-bottom: 3.75rem; // Space below the intro section
+
+    @include breakpoint-up(large) {
+      width: 60%; // On large screens, set the intro width to 60%
+    }
+  }
+
+  &__grid {
+    @include breakpoint-up(medium) {
+      display: flex; // Use flexbox for medium screens and up
+      flex-wrap: wrap; // Allow wrapping of flex items
+    }
+  }
+
+  &__item {
+    padding: 0.9375rem; // Padding around each item
+
+    @include breakpoint-up(medium) {
+      flex: 0 0 50%; // On medium screens, each item takes 50% width
+    }
+
+    @include breakpoint-up(large) {
+      flex: 1; // On large screens, each item takes equal width
+    }
+  }
+
+  &__icon {
+    margin-bottom: 1.875rem; // Space below the icon
+
+    @include breakpoint-up(large) {
+      margin-bottom: 2.75rem; // On large screens, increase space below the icon
+    }    
+  }
+
+  &__title {
+    font-size: 1.25rem; // Font size for the title
+    font-weight: 300; // Light font weight
+    line-height: 1.15; // Adjust line height for readability
+    color: $darkBlue; // Dark blue color for the title
+    margin-bottom: 1rem; // Space below the title
+
+    @include breakpoint-up(large) {
+      font-size: 1.5rem; // Increase font size on larger screens
+      margin-bottom: 1.5rem; // Increase space below the title
+    }
+  }
+
+  &__description {
+    font-size: 0.875rem; // Font size for the description
+    line-height: 1.5; // Line height for better readability
+  }
+}

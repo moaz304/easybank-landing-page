@@ -1,0 +1,411 @@
+/* General styling for elements with the "has-fade" class */
+.has-fade {
+  visibility: hidden; /* Initially hide elements */
+}
+
+/* Keyframes for fade-in animation */
+@-webkit-keyframes fade-in { /* For WebKit browsers like Safari */
+  from {
+    visibility: hidden; /* Start with visibility hidden */
+    opacity: 0; /* Start with 0 opacity */
+  }
+  1% {
+    visibility: visible; /* Become visible after 1% */
+    opacity: 0; /* Stay invisible for the first part of animation */
+  }
+  to {
+    visibility: visible; /* End with visibility visible */
+    opacity: 1; /* End with full opacity */
+  }
+}
+
+/* Keyframes for fade-in animation (standard version) */
+@keyframes fade-in {
+  from {
+    visibility: hidden; /* Start with visibility hidden */
+    opacity: 0; /* Start with 0 opacity */
+  }
+  1% {
+    visibility: visible; /* Become visible after 1% */
+    opacity: 0; /* Stay invisible for the first part of animation */
+  }
+  to {
+    visibility: visible; /* End with visibility visible */
+    opacity: 1; /* End with full opacity */
+  }
+}
+
+/* Apply the fade-in animation with a duration of 200ms */
+.fade-in {
+  -webkit-animation: fade-in 200ms ease-in-out forwards; /* For WebKit browsers */
+  animation: fade-in 200ms ease-in-out forwards; /* Standard animation */
+}
+
+/* Keyframes for fade-out animation (for WebKit browsers like Safari) */
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible; /* Start with visibility visible */
+    opacity: 1; /* Start with full opacity */
+  }
+  99% {
+    visibility: visible; /* Stay visible until 99% */
+    opacity: 0; /* Start fading out after 99% */
+  }
+  to {
+    visibility: hidden; /* End with visibility hidden */
+    opacity: 0; /* End with 0 opacity */
+  }
+}
+
+/* Keyframes for fade-out animation (standard version) */
+@keyframes fade-out {
+  from {
+    visibility: visible; /* Start with visibility visible */
+    opacity: 1; /* Start with full opacity */
+  }
+  99% {
+    visibility: visible; /* Stay visible until 99% */
+    opacity: 0; /* Start fading out after 99% */
+  }
+  to {
+    visibility: hidden; /* End with visibility hidden */
+    opacity: 0; /* End with 0 opacity */
+  }
+}
+
+/* Apply the fade-out animation with a duration of 200ms */
+.fade-out {
+  -webkit-animation: fade-out 200ms ease-in-out forwards; /* For WebKit browsers */
+  animation: fade-out 200ms ease-in-out forwards; /* Standard animation */
+}
+
+/* Set the base font size and box-sizing */
+html {
+  font-size: 100%; /* Default font size */
+  box-sizing: border-box; /* Use border-box model for all elements */
+}
+
+/* Apply the box-sizing inheritance to all elements */
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Inherit box-sizing from the html element */
+}
+
+/* Body styling */
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font-family: "Public Sans", sans-serif; /* Set custom font */
+  font-size: 0.875rem; /* Set default font size */
+  font-weight: 300; /* Set font weight */
+  color: #9698a6; /* Set text color */
+  line-height: 1.3; /* Set line height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Increase font size for larger screens */
+@media (min-width: 64em) {
+  body {
+    font-size: 1.125rem; /* Larger font size for larger screens */
+  }
+}
+
+/* Prevent scrolling on body when class "noscroll" is applied */
+body.noscroll {
+  overflow: hidden; /* Disable scrolling */
+}
+
+/* Headings styles */
+h1,
+h2,
+h3 {
+  font-weight: 300; /* Set font weight */
+  line-height: 1.15; /* Set line height */
+  color: #2d314d; /* Set heading color */
+  margin-top: 0px; /* Remove top margin */
+}
+
+/* Style for h1 heading */
+h1 {
+  font-size: 2.31rem; /* Set font size */
+  margin-bottom: 1.5rem; /* Add margin at the bottom */
+}
+
+/* Increase h1 font size for larger screens */
+@media (min-width: 64em) {
+  h1 {
+    font-size: 3.25rem; /* Larger font size on bigger screens */
+  }
+}
+
+/* Style for h2 heading */
+h2 {
+  font-size: 1.875rem; /* Set font size */
+  margin-bottom: 1.5625rem; /* Add margin at the bottom */
+}
+
+/* Increase h2 font size for larger screens */
+@media (min-width: 64em) {
+  h2 {
+    font-size: 2.25rem; /* Larger font size on bigger screens */
+    margin-bottom: 2.25rem; /* Larger margin at the bottom */
+  }
+}
+
+/* Paragraph styling */
+p {
+  line-height: 1.5; /* Set line height */
+  margin-bottom: 2.25rem; /* Add bottom margin */
+}
+
+/* Styling for links */
+a,
+a:visited,
+a:hover {
+  text-decoration: none; /* Remove underlines */
+}
+
+/* General container styling */
+.container {
+  max-width: 69.375rem; /* Set maximum width */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Padding for containers */
+.container--pall {
+  padding-top: 4.375rem; /* Top padding */
+  padding-right: 1.5rem; /* Right padding */
+  padding-bottom: 4.375rem; /* Bottom padding */
+  padding-left: 1.5rem; /* Left padding */
+}
+
+/* Adjust padding for larger screens */
+@media (min-width: 64em) {
+  .container--pall {
+    padding-top: 6rem; /* Larger top padding */
+    padding-bottom: 6rem; /* Larger bottom padding */
+  }
+}
+
+/* Vertical padding only */
+.container--py {
+  padding-top: 4.375rem; /* Top padding */
+  padding-bottom: 4.375rem; /* Bottom padding */
+}
+
+/* Adjust vertical padding for larger screens */
+@media (min-width: 64em) {
+  .container--py {
+    padding-top: 6rem; /* Larger top padding */
+    padding-bottom: 6rem; /* Larger bottom padding */
+  }
+}
+
+/* Horizontal padding only */
+.container--px {
+  padding-right: 1.5rem; /* Right padding */
+  padding-left: 1.5rem; /* Left padding */
+}
+
+/* Top padding only */
+.container--pt {
+  padding-top: 4.375rem; /* Top padding */
+}
+
+/* Adjust top padding for larger screens */
+@media (min-width: 64em) {
+  .container--pt {
+    padding-top: 6rem; /* Larger top padding */
+  }
+}
+
+/* Right padding only */
+.container--pr {
+  padding-right: 1.5rem; /* Right padding */
+}
+
+/* Bottom padding only */
+.container--pb {
+  padding-bottom: 4.375rem; /* Bottom padding */
+}
+
+/* Adjust bottom padding for larger screens */
+@media (min-width: 64em) {
+  .container--pb {
+    padding-bottom: 6rem; /* Larger bottom padding */
+  }
+}
+
+/* Left padding only */
+.container--pl {
+  padding-left: 1.5rem; /* Left padding */
+}
+
+/* Flexbox container styles */
+.flex {
+  display: flex; /* Use flexbox layout */
+}
+
+/* Flexbox for space between items */
+.flex-jc-sb {
+  justify-content: space-between; /* Space between flex items */
+}
+
+/* Flexbox for centering items */
+.flex-jc-c {
+  justify-content: center; /* Center flex items horizontally */
+}
+
+/* Flexbox for centering items vertically */
+.flex-ai-c {
+  align-items: center; /* Align items vertically in the center */
+}
+
+/* General button styles */
+button,
+.button {
+  position: relative; /* Position relative for positioning child elements */
+  display: inline-block; /* Inline-block display for buttons */
+  padding: 0.875rem 2.1875rem; /* Padding inside buttons */
+  background-image: linear-gradient(to right, #31d35c, #2bb7da); /* Gradient background */
+  border: 0; /* Remove border */
+  border-radius: 50px; /* Round the corners */
+  cursor: pointer; /* Change cursor to pointer */
+  color: white; /* White text color */
+  font-weight: 400; /* Font weight */
+  font-size: 0.875rem; /* Font size */
+  transition: opacity 300ms ease-in-out; /* Smooth transition for opacity */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Button hover effect (light overlay) */
+button::before,
+.button::before {
+  content: ""; /* No content, just a pseudo-element */
+  position: absolute; /* Position absolutely inside the button */
+  top: 0; /* Align top */
+  right: 0; /* Align right */
+  bottom: 0; /* Align bottom */
+  left: 0; /* Align left */
+  background-color: rgba(255, 255, 255, 0.25); /* Light overlay */
+  opacity: 0; /* Start with no opacity */
+  transition: opacity 300ms ease-in-out; /* Smooth transition for opacity */
+}
+
+/* Button hover effect */
+button:hover::before,
+.button:hover::before {
+  opacity: 1; /* Show the overlay on hover */
+}
+
+/* Button active state (when clicked) */
+button:active,
+.button:active {
+  opacity: 0.7; /* Reduce opacity when active */
+}
+
+/* Button focus state */
+button:focus,
+.button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25); /* Add subtle focus box-shadow */
+}
+
+/* Disabled button state */
+button:disabled,
+.button:disabled {
+  background-image: linear-gradient(to right, #3e3e3e, #3e3e3e); /* Dark gray background */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+}
+
+/* Disabled button text color */
+button:disabled span,
+.button:disabled span {
+  color: #9698a6; /* Gray text color */
+}
+
+/* Button span styles */
+button span,
+.button span {
+  z-index: 10; /* Ensure the text is on top */
+}
+
+/* Typography utility classes */
+
+/* Set font-weight to bold for strong emphasis */
+.font-weight-bold {
+  font-weight: 700;
+}
+
+/* Set font-weight to normal for normal emphasis */
+.font-weight-normal {
+  font-weight: 400;
+}
+
+/* Set font-size to 1.25rem for larger text */
+.font-size-lg {
+  font-size: 1.25rem;
+}
+
+/* Set font-size to 1rem for normal text */
+.font-size-md {
+  font-size: 1rem;
+}
+
+/* Set font-size to 0.875rem for smaller text */
+.font-size-sm {
+  font-size: 0.875rem;
+}
+
+/* Margin utility classes */
+
+/* Add top margin */
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+/* Add top margin */
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+/* Add top margin */
+.mt-3 {
+  margin-top: 1rem;
+}
+
+/* Add top margin */
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+/* Add top margin */
+.mt-5 {
+  margin-top: 2rem;
+}
+
+/* Add bottom margin */
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+/* Add bottom margin */
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Add bottom margin */
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+/* Add bottom margin */
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Add bottom margin */
+.mb-5 {
+  margin-bottom: 2rem;
+}

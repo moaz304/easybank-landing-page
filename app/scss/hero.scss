@@ -1,0 +1,82 @@
+.hero {
+  background-color: $veryLightGray; // Sets background color for hero section
+
+  .container {
+    @include breakpoint-up(large) {
+      display: flex; // Make container use flexbox layout
+      align-items: center; // Vertically center items
+    }
+  }
+
+  &__image {
+    position: relative; // Needed for absolute elements inside
+    background-image: url('/images/bg-intro-mobile.svg'); // Mobile background image
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 17.5rem; // Minimum height for mobile
+
+    @include breakpoint-up(medium) {
+      min-height: 25rem; // Taller image for tablets
+      background-position: center 70%; // Slightly move image up
+    }
+
+    @include breakpoint-up(large) {
+      flex: 3; // Take more space in flex layout
+      order: 2; // Appear second on large screens
+      height: 41rem; // Fixed height
+      background-image: none; // Remove background image here (will use ::before instead)
+    }
+
+    &::before,
+    &::after {
+      // Optional borders for debugging (currently off)
+    }
+
+    &::before {
+      @include breakpoint-up(large) {
+        content: ""; // Add decorative element
+        position: absolute;
+        height: 100%;
+        background-image: url('/images/bg-intro-desktop.svg'); // Desktop background
+        background-repeat: no-repeat;
+        width: 150%;
+        background-size: 122%;
+        background-position: 0% 83%; // Shift image to bottom left
+      }
+    }
+
+    &::after {
+      content: ""; // Add mockup image
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url('/images/image-mockups.png'); // Phone mockups
+      background-size: 93%;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      @include breakpoint-up(medium) {
+        background-size: 52%; // Smaller mockups on tablet
+      }
+
+      @include breakpoint-up(large) {
+        width: 120%;
+        height: 122%;
+        background-size: 94%;
+        background-position: center 150%; // Push down
+        left: 22%; // Shift right
+      }
+    }
+  }
+
+  &__text {
+    text-align: center; // Center text on mobile
+
+    @include breakpoint-up(large) {
+      flex: 2; // Less space than image
+      order: 1; // Appear first
+      text-align: left; // Align left on large screens
+    }
+  }
+}
